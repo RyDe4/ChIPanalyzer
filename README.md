@@ -1,1 +1,1 @@
-# CLIPfeatureMap
+# ChIPanalyzer
