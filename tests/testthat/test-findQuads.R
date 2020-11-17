@@ -8,3 +8,10 @@ test_that("correct sequences retreived from genome", {
     seqWidth = 200,
     assembly = "hg19")[[1]])), "GGGGGAAGTGAGTGGATGTAGCTATTGGCAACCAGACAAGCAAAGCCAATTAAGGGGTGGAGAGCTTATGCAAAGAATGTGATGAATAAATTCTGGAACAAGAGTCCATGCCCTTTATTCATTTATAACAATTGAGGCAGTCAAGTGAGAAGCTGTAACATAGCATCAAATTATGATAGACCCAGATCACTATAACTGGA")
 })
+
+test_that("correct number of reports is generated", {
+  expect_equal(length(findQuads(
+    bedPath = "MAZ_very_small_test.bed",
+    seqWidth = 200,
+    assembly = "hg19")), 20)
+})
