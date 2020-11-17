@@ -1,0 +1,33 @@
+---
+title: "Analyze_Peak_Methylation"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Analyze_Peak_Methylation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Using a BED6 file of processed ChiP-seq peaks and a BED9 file of methylation data in a format similar to those found at http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeHaibMethylRrbs/ (percent reads methylated must be column 9), ChIPAnalyzer can determine the percentage of bases with data with the peaks that are methylated.
+
+```{r setup}
+library(ChIPAnalyzer)
+system.file("extdata", "MAZ_high_score.bed", package = "ChIPAnalyzer")
+system.file("extdata", "HEK293MethylData.bed", package = "ChIPAnalyzer")
+
+overlap <- getMethylOverlap(chipPath = "MAZ_high_score.bed", methylPath = "HEK293MethylData.bed")
+```
+
+This will return a data frame in a from similar to the methylation BED file, with the 9th column, named "coverage" specifying the percentage of reads that were methylated at that site. A low percentage indicates little methylation. Now we will plot the average percentage of nucleotides accross all peaks that were methylated:
+
+```{r step 2}
+plotMethylPercentage(methylOverlapData = overlap)
+```
+
+This will result in a pie chart indicating the average frequency, as a percentage, that nucleotides within the ChIP-SEQ peaks were methylated.

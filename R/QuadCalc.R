@@ -88,7 +88,6 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
   library(pqsfinder)
   #run pqsfinder on the sequences
   quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
-  detach("package:pqsfinder", unload = TRUE)
   return(quadReports)
 }
 
@@ -111,6 +110,9 @@ getMaxOnly <- function(prelimScores, prelimStarts, prelimWidths) {
 
 #get the score, start position, and width of each quadruplex
 getBasicStats <- function(quadResults, seqWidth) {
+  #this is necessary for accessing attributes of objects
+  #from this package
+  library("pqsfinder")
   #get the scores, start postitions, and widths of any quadruplexes
   quadScores <- lapply(quadResults, score)
   quadStart <- lapply(quadResults, start)
@@ -158,10 +160,9 @@ getQuadMatrix <- function(quadReports) {
   seq1Length <- nchar(as.character(Biostrings::subject(quadReports[[1]])))
   seq2Length <- nchar(as.character(Biostrings::subject(quadReports[[2]])))
   if (seq1Length != seq2Length) {
-      stop("Reports not for sequences of equal length")
-    }
+    stop("Reports not for sequences of equal length")
+  }
   seqWidth = seq1Length
-  print("seqWidth")
   prelimStats <- getBasicStats(quadResults = quadReports, seqWidth = seqWidth)
   binVecs <- lapply(prelimStats, getBinVector,
                     seqWidth = seqWidth)

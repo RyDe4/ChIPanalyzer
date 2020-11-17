@@ -18,16 +18,17 @@
 #'@export
 plotQuadPosition <- function (featurePercentages, title) {
   #calculate the bounds for the x axis
-  leftBound <- -1*floor(length(featurePercentages)/2)
-  rightBound <- ceiling(length(featurePercentages)/2) - 1
+  leftBound <- as.integer(-1*floor(length(featurePercentages)/2))
+  rightBound <- as.integer(ceiling(length(featurePercentages)/2) - 1)
   #display the plot
   plot(c(leftBound, rightBound),
-       c(0, 100), type = "n",
+       c(0, 100),
+       type = "n",
        xlab = "Position",
        ylab = "Percentage")
-  lines(leftBound:rightBound,
+  lines(x = leftBound:rightBound,
         type = "l",
-        featurePercentages,
+        y = featurePercentages,
         col = "blue")
   abline(v = 0)
   title(title)

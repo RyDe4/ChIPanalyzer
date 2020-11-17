@@ -45,11 +45,12 @@ getMethylOverlap <- function (chipPath, methylPath) {
   #get the overlap in the two GenomicRanges object
   overlap <- IRanges::findOverlapPairs(chipRange, methylRange)
   #subset the methylation dataframe to only include overlaps
-  methylOverlaps <- methylFrame[which(methylFrame$chrom %in%
-                           seqnames(second(overlap))
-                         & methylFrame$start %in%
-                           start(ranges(second(overlap)))), ,
-                         drop = FALSE]
+  library(GenomicRanges)
+  library(S4Vectors)
+  methylOverlaps <- methylFrame[which(as.vector(methylFrame$chrom) %in%
+                           as.vector(seqnames(second(overlap)))
+                         & as.vector(methylFrame$start) %in%
+                           as.vector(start(ranges(second(overlap))))), ]
   return(methylOverlaps)
 }
 
