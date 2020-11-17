@@ -32,18 +32,24 @@ createMethylBedFrame <- function(bedPath) {
 #'
 #'@example
 #' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HEK293MethylData.bed")
+#'@export
 getMethylOverlap <- function (chipPath, methylPath) {
   chipFrame <- createChipBedFrame(chipPath)
+  #create a GenomicRanges object representing the peaks
   chipRange <- GenomicRanges::makeGRangesFromDataFrame(chipFrame,
                                         keep.extra.columns = FALSE)
   methylFrame <- createMethylBedFrame(methylPath)
+  #create a GenomicRanges object represented sites with methylation data
   methylRange <- GenomicRanges::makeGRangesFromDataFrame(methylFrame,
                                         keep.extra.columns = FALSE)
-  overlap <- GenomicRanges::findOverlapPairs(chipRange, methylRange)
+  #get the overlap in the two GenomicRanges object
+  overlap <- IRanges::findOverlapPairs(chipRange, methylRange)
+  #subset the methylation dataframe to only include overlaps
   methylOverlaps <- methylFrame[which(methylFrame$chrom %in%
                            seqnames(second(overlap))
                          & methylFrame$start %in%
-                           start(ranges(second(overlap)))), ]
+                           start(ranges(second(overlap)))), ,
+                         drop = FALSE]
   return(methylOverlaps)
 }
 
