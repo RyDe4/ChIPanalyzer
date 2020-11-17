@@ -1,0 +1,50 @@
+#create a data frame from a BED9 file representing methylation
+#data from UCSC
+createMethylBedFrame <- function(bedPath) {
+  bindSites <- read.table(bedPath,
+                          sep = "\t",
+                          header = FALSE)
+  colnames(bindSites) <- c("chrom", "start", "end", "name",
+                           "s1", "strand", "s2,", "s3", "s4",
+                           "s5", "coverage")
+  return(bindSites)
+}
+
+#'Get methylation data overlapping with ChIP-SEQ peaks
+#'
+#'Given paths to a BED file with ChIP-SEQ peaks and a BED file
+#'with methylation data, return a dataframe containing methylation
+#'data for sites within ChIP-SEQ peaks.
+#'
+#'@param chipPath the path to a BED6 or greater file containing processed
+#' ChIP-seq peaks. If data is not stranded, a period should be specified
+#' in the strand column.
+#'@param methylPath the path to a BED9 file with methylation data similar
+#' to those available on the UCSC website, where the ninth column
+#' specifies the percentage of reads that were methylated:
+#' http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeHaibMethylRrbs/
+#'
+#'@return a dataframe where the first column specifies
+#' a chromosome, the second column specifies an end position
+#' on the genome, the sixth column represents a strand or . if
+#' this is not specified, and the last (ninth) column specifies
+#' the percentage of reads that were methylated.
+#'
+#'@example
+#' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HEK293MethylData.bed")
+getMethylOverlap <- function (chipPath, methylPath) {
+  chipFrame <- createChipBedFrame(chipPath)
+  chipRange <- GenomicRanges::makeGRangesFromDataFrame(chipFrame,
+                                        keep.extra.columns = FALSE)
+  methylFrame <- createMethylBedFrame(methylPath)
+  methylRange <- GenomicRanges::makeGRangesFromDataFrame(methylFrame,
+                                        keep.extra.columns = FALSE)
+  overlap <- GenomicRanges::findOverlapPairs(chipRange, methylRange)
+  methylOverlaps <- methylFrame[which(methylFrame$chrom %in%
+                           seqnames(second(overlap))
+                         & methylFrame$start %in%
+                           start(ranges(second(overlap)))), ]
+  return(methylOverlaps)
+}
+
+
