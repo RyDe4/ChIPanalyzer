@@ -72,8 +72,8 @@ plotMethylPercentage <- function(methylOverlapData) {
   pie(sections, pieLabels,
       col = c("green", "blue"),
       cex = 0.7)
-  title("Avg Percent Reads Methylated", cex = 0.5)
+  title("Avg % Reads Methylated", cex = 0.3)
   legend("topright", c("Methylated", "Not Methylated"),
-         cex = 0.53, fill= c("green", "blue"))
+         cex = 0.5, fill= c("green", "blue"))
   return(TRUE)
 }

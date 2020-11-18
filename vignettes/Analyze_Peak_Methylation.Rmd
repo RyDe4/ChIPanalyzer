@@ -21,7 +21,7 @@ library(ChIPAnalyzer)
 system.file("extdata", "MAZ_high_score.bed", package = "ChIPAnalyzer")
 system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
 
-overlap <- getMethylOverlap(chipPath = "MAZ_high_score.bed", methylPath = "HcfUMethylData.bed.bed")
+overlap <- getMethylOverlap(chipPath = "MAZ_high_score.bed", methylPath = "HcfUMethylData.bed")
 ```
 
 This will return a data frame in a from similar to the methylation BED file, with the 9th column, named "coverage" specifying the percentage of reads that were methylated at that site. A low percentage indicates little methylation. Now we will plot the average percentage of nucleotides accross all peaks that were methylated:
