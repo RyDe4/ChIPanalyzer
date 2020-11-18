@@ -10,11 +10,14 @@
 #' a vector returned by getQuadCoveragePercentage()
 #'@param title a string specifying the title of the plot
 #'
+#'@return returns TRUE if no errors
+#'
 #'@example
 #' reports <- findQuads(bedPath = "BRD4_reduced.bed", seqWidth = 75, assemblyVersion = "hg19")
 #' qMatrix <- getQuadMatrix(quadReports = reports, seqWidth = 75)
 #' quadCoveragePercentage <- getQuadCoveragePercentage(quadMatrix = qMatrix)
 #' plotQuadPosition(quadCoveragePosition, "BRD4 G-Quad Abundance")
+#'
 #'@export
 plotQuadPosition <- function (featurePercentages, title) {
   #calculate the bounds for the x axis
@@ -32,6 +35,7 @@ plotQuadPosition <- function (featurePercentages, title) {
         col = "blue")
   abline(v = 0)
   title(title)
+  return(TRUE)
 }
 
 #'Generate a Pie Chart of The percentage of ChIP peak nucleotides that
@@ -63,6 +67,7 @@ plotMethylPercentage <- function(methylOverlapData) {
   title("Avg Percent Reads Methylated", cex = 0.5)
   legend("topright", c("Methylated", "Not Methylated"),
          cex = 0.53, fill= c("green", "blue"))
+  return(TRUE)
 }
 
 #'Plot the percentage of sites methylated across multiple datasets in
@@ -73,6 +78,8 @@ plotMethylPercentage <- function(methylOverlapData) {
 #'but potentially different methylation datasets
 #'
 #'@param methylCoverageList a list of vectors of methylation percentages
+#'
+#'@return returns TRUE if there are no errors
 #'
 #'@export
 plotMultipleMethylPercentage <- function(methylCoverageList, lineNames, title, xlabel) {
@@ -87,4 +94,5 @@ plotMultipleMethylPercentage <- function(methylCoverageList, lineNames, title, x
           xlab = xlabel,
           ylab = "Average Coverage Percentage",
           main = title)
+  return(TRUE)
 }
