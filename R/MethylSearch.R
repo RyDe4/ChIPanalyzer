@@ -31,7 +31,7 @@ createMethylBedFrame <- function(bedPath) {
 #' the percentage of reads that were methylated.
 #'
 #'@example
-#' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HEK293MethylData.bed")
+#' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HcfUMethylData.bed")
 #'@export
 getMethylOverlap <- function (chipPath, methylPath) {
   chipFrame <- createChipBedFrame(chipPath)
