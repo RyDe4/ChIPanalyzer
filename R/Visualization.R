@@ -20,6 +20,9 @@
 #'
 #'@export
 plotQuadPosition <- function (featurePercentages, title) {
+  if (length(featurePercentages) < 1) {
+    stop("empty vector provided")
+  }
   #calculate the bounds for the x axis
   leftBound <- as.integer(-1*floor(length(featurePercentages)/2))
   rightBound <- as.integer(ceiling(length(featurePercentages)/2) - 1)
@@ -54,6 +57,9 @@ plotQuadPosition <- function (featurePercentages, title) {
 #'
 #'@export
 plotMethylPercentage <- function(methylOverlapData) {
+  if(nrow(methylOverlapData) < 1) {
+    stop("empty dataframe provided")
+  }
   #calculate the average percentages of reads methylated at each position
   avgPercentMethyl <- mean(methylOverlapData$coverage)
   #define the labels and sections for the pie chart
@@ -67,32 +73,5 @@ plotMethylPercentage <- function(methylOverlapData) {
   title("Avg Percent Reads Methylated", cex = 0.5)
   legend("topright", c("Methylated", "Not Methylated"),
          cex = 0.53, fill= c("green", "blue"))
-  return(TRUE)
-}
-
-#'Plot the percentage of sites methylated across multiple datasets in
-#'a bar graph
-#'
-#'From a list of vectors containing the percentages of reads methylated
-#'at different sites in ChIP peaks from the same ChIP peak dataset,
-#'but potentially different methylation datasets
-#'
-#'@param methylCoverageList a list of vectors of methylation percentages
-#'
-#'@return returns TRUE if there are no errors
-#'
-#'@export
-plotMultipleMethylPercentage <- function(methylCoverageList, lineNames, title, xlabel) {
-  #calculate the average percentages of reads methylated at each position
-  #for each dataset
-  avgPercentages <-lapply(methylCoverageList, mean)
-  avgPercentages <- unlist(avgPercentages)
-  names(avgPercentages) <- lineNames
-  #display the plot
-  barplot(avgPercentages,
-          ylim = c(0, max(avgPercentages) + 1),
-          xlab = xlabel,
-          ylab = "Average Coverage Percentage",
-          main = title)
   return(TRUE)
 }
