@@ -28,3 +28,6 @@ Given paths to a BED file with ChIP-SEQ peaks and a BED file
 with methylation data, return a dataframe containing methylation
 data for sites within ChIP-SEQ peaks.
 }
+\examples{
+overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HcfUMethylData.bed")
+}

@@ -22,3 +22,11 @@ by that column}
 Using the matrix returned by getQuadMatrix, calculate the percentage abundance
 quadruplexes at positions dictated by the columns of quadMatrix
 }
+\examples{
+reports <- findQuads(bedPath = "MAZ_high_score.bed",
+ seqWidth = 200,
+ assemblyVersion = "hg19")
+qMatrix <- getQuadMatrix(quadReports = reports)
+quadCoveragePercentage <-
+ getQuadCoveragePercentage(quadMatrix = qMatrix)
+}

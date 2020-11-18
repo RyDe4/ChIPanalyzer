@@ -189,7 +189,7 @@ getQuadMatrix <- function(quadReports) {
 #' quadmatrix that there was a 1(quadruplex) at the position represented
 #' by that column
 #'
-#'@example
+#'@examples
 #' reports <- findQuads(bedPath = "MAZ_high_score.bed",
 #'  seqWidth = 200,
 #'  assemblyVersion = "hg19")

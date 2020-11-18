@@ -53,7 +53,7 @@ plotQuadPosition <- function (featurePercentages, title) {
 #'@param methylOverlapData a data frame with a coverage column specifying
 #' the percentage of reads methylated. This column must be named coverage
 #'
-#'@example
+#'@examples
 #' overlap <- getMethylOverlap("MAZ_high_score.bed", "HcfUMethylData.bed")
 #' plotMethylPercentage(overlap)
 #'
