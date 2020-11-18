@@ -23,6 +23,6 @@ there is a quadruplex at that position in the sequence for the report for that r
 and a 0 otherwise.
 }
 \examples{
-reports <- findQuads(bedPath = "BRD4_reduced.bed", seqWidth = 75, assemblyVersion = "hg19")
-quadMatrix <- getQuadMatrix(quadReports = reports, seqWidth = 75)
+reports <- findQuads(bedPath = "MAZ_high_score.bed", seqWidth = 200, assemblyVersion = "hg19")
+quadMatrix <- getQuadMatrix(quadReports = reports)
 }

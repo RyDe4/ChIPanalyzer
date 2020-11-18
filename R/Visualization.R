@@ -13,10 +13,12 @@
 #'@return returns TRUE if no errors
 #'
 #'@example
-#' reports <- findQuads(bedPath = "BRD4_reduced.bed", seqWidth = 75, assemblyVersion = "hg19")
-#' qMatrix <- getQuadMatrix(quadReports = reports, seqWidth = 75)
+#' reports <- findQuads(bedPath = "MAZ_high_score.bed",
+#'  seqWidth = 200,
+#'   assemblyVersion = "hg19")
+#' qMatrix <- getQuadMatrix(quadReports = reports)
 #' quadCoveragePercentage <- getQuadCoveragePercentage(quadMatrix = qMatrix)
-#' plotQuadPosition(quadCoveragePosition, "BRD4 G-Quad Abundance")
+#' plotQuadPosition(quadCoveragePosition, "MAZ G-Quad Abundance")
 #'
 #'@export
 plotQuadPosition <- function (featurePercentages, title) {
@@ -52,7 +54,7 @@ plotQuadPosition <- function (featurePercentages, title) {
 #' the percentage of reads methylated. This column must be named coverage
 #'
 #'@example
-#' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HEK293MethylData.bed")
+#' overlap <- getMethylOverlap("MAZ_high_score.bed", "HEK293MethylData.bed")
 #' plotMethylPercentage(overlap)
 #'
 #'@export

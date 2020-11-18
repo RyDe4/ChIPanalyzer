@@ -14,7 +14,7 @@ a vector returned by getQuadCoveragePercentage()}
 \item{title}{a string specifying the title of the plot}
 }
 \value{
-TRUE if no errors occur
+returns TRUE if no errors
 }
 \description{
 Using a vector returned by getQuadCoveragePercentage(),
