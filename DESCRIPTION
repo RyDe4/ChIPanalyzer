@@ -17,11 +17,11 @@ Suggests:
     knitr,
     rmarkdown
 Imports: 
-    pqsfinder,
-    Biostrings,
-    GenomicRanges,
-    BSgenome.Hsapiens.UCSC.hg19,
-    BSgenome.Hsapiens.UCSC.hg38,
-    BSgenome.Mmusculus.UCSC.mm9,
-    BSgenome.Mmusculus.UCSC.mm10
+    biocViews:pqsfinder,
+    biocViews:Biostrings,
+    biocViews:GenomicRanges,
+    biocViews:BSgenome.Hsapiens.UCSC.hg19,
+    biocViews:BSgenome.Hsapiens.UCSC.hg38,
+    biocViews:BSgenome.Mmusculus.UCSC.mm9,
+    biocViews:BSgenome.Mmusculus.UCSC.mm10
 VignetteBuilder: knitr
