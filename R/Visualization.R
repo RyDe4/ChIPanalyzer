@@ -12,7 +12,7 @@
 #'
 #'@return returns TRUE if no errors
 #'
-#'@example
+#'@examples
 #' reports <- findQuads(bedPath = "MAZ_high_score.bed",
 #'  seqWidth = 200,
 #'   assemblyVersion = "hg19")
