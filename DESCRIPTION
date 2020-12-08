@@ -24,4 +24,5 @@ Imports:
     biocViews:BSgenome.Hsapiens.UCSC.hg38,
     biocViews:BSgenome.Mmusculus.UCSC.mm9,
     biocViews:BSgenome.Mmusculus.UCSC.mm10
+    biocViews:IRanges
 VignetteBuilder: knitr
