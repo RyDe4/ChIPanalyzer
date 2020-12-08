@@ -32,9 +32,13 @@ createMethylBedFrame <- function(bedPath) {
 #'
 #'@examples
 #' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
 #' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HcfUMethylData.bed")
 #'
 #'@export
+#'@import S4Vectors
+#'@import GenomicRanges
+#'@import IRanges
 getMethylOverlap <- function (chipPath, methylPath) {
   chipFrame <- createChipBedFrame(chipPath)
   #create a GenomicRanges object representing the peaks
@@ -46,13 +50,12 @@ getMethylOverlap <- function (chipPath, methylPath) {
                                         keep.extra.columns = FALSE)
   #get the overlap in the two GenomicRanges object
   overlap <- IRanges::findOverlapPairs(chipRange, methylRange)
+
   #subset the methylation dataframe to only include overlaps
-  library(GenomicRanges)
-  library(S4Vectors)
   methylOverlaps <- methylFrame[which(as.vector(methylFrame$chrom) %in%
-                           as.vector(seqnames(second(overlap)))
+                           as.vector(GenomicRanges::seqnames(S4Vectors::second(overlap)))
                          & as.vector(methylFrame$start) %in%
-                           as.vector(start(ranges(second(overlap))))), ]
+                           as.vector(GenomicRanges::start(GenomicRanges::ranges(S4Vectors::second(overlap))))), ]
   return(methylOverlaps)
 }
 
