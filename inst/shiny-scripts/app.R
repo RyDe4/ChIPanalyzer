@@ -15,6 +15,10 @@ ui <- fluidPage(
         selectInput(inputId = "assembly", label = "Select Genome
                     Assembly", choices = list("hg19", "hg38",
                                             "mm9", "mm10")),
+        radioButtons(inputId = "maxOnly",
+                     label = "Use only max scoring G4 for each peak?",
+                     choiceNames = c("Yes", "No"),
+                     choiceValues = c(TRUE, FALSE)),
         actionButton("runQuad",
                      label = "Generate G4 Position Plot")),
       column(6,
@@ -40,13 +44,13 @@ ui <- fluidPage(
 
 
 server <- function(input, output) {
-  getPerc <- function (bedPath, seqWidth, assemblyVersion) {
+  getPerc <- function (bedPath, seqWidth, assemblyVersion, maxOnly) {
     incProgress(0.1, detail = "Finding Quadruplexes")
     reports <- findQuads(bedPath = bedPath,
                          seqWidth = seqWidth,
                          assemblyVersion = assemblyVersion)
     incProgress(0.7, detail = "Formatting Postitions")
-    qMatrix <- getQuadMatrix(quadReports = reports)
+    qMatrix <- getQuadMatrix(quadReports = reports, maxOnly = maxOnly)
     incProgress(0.9, detail = "Calculating Percentages")
     quadCoveragePercentage <- getQuadCoveragePercentage(quadMatrix = qMatrix)
     return(quadCoveragePercentage)
@@ -54,7 +58,7 @@ server <- function(input, output) {
 
   quadCoveragePercentage <- eventReactive(input$runQuad, {
     withProgress(message = "Generating Plot...", value = 0, {
-    getPerc(input$peaks$datapath, input$seqLen, input$assembly)
+    getPerc(input$peaks$datapath, input$seqLen, input$assembly, input$maxOnly)
     })
   })
 
