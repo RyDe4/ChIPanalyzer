@@ -44,6 +44,7 @@ ui <- fluidPage(
 
 
 server <- function(input, output) {
+  #function containing all steps to get G4 coverage Percentages for plotting
   getPerc <- function (bedPath, seqWidth, assemblyVersion, maxOnly) {
     incProgress(0.1, detail = "Finding Quadruplexes")
     reports <- findQuads(bedPath = bedPath,
@@ -56,16 +57,19 @@ server <- function(input, output) {
     return(quadCoveragePercentage)
   }
 
+  #Start calculating
   quadCoveragePercentage <- eventReactive(input$runQuad, {
     withProgress(message = "Generating Plot...", value = 0, {
     getPerc(input$peaks$datapath, input$seqLen, input$assembly, input$maxOnly)
     })
   })
 
+  #render the quadruplex plot
   output$quadPlot <- renderPlot({
       plotQuadPosition(quadCoveragePercentage(), "")
   })
 
+  #calculate overlap between methylation data and peaks when button is pressed
   overlap <- eventReactive(input$runMethylOverlap, {
     withProgress(message = "Finding peak sites with Methylation Data...",
                  value = 0, {
@@ -73,6 +77,7 @@ server <- function(input, output) {
     })
   })
 
+  #render the methylation plot
   output$methylPlot <- renderPlot({
       plotMethylPercentage(overlap())
   })
