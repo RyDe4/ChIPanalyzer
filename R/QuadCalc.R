@@ -157,6 +157,13 @@ getBinVector <- function(quadData, seqWidth) {
 #' reports <- findQuads(bedPath = "MAZ_very_small_test.bed", seqWidth = 200, assemblyVersion = "hg19")
 #' quadMatrix <- getQuadMatrix(quadReports = reports)
 #'
+#'@references
+#' Hon J, Martinek T, Zendulka J, Lexa M. (2017) pqsfinder: an
+#' exhaustive and imperfection-tolerant search tool for
+#' potential quadruplex-forming sequences in R. Bioinformatics.
+#' 33(21), 3373-3379.
+#' https://doi.org/10.1093/bioinformatics/btx413
+#'
 #'@export
 #'@import pqsfinder
 getQuadMatrix <- function(quadReports) {
