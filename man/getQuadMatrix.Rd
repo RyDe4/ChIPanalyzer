@@ -12,8 +12,6 @@ the function findQuads. The length of the sequences reported on must be the same
 and equal to seqWidth}
 
 \item{maxOnly}{if TRUE, only the maximum scoring G-quadruplexes for each sequence are used.}
-
-\item{seqWidth}{the width of the sequence used to generate all the reports.}
 }
 \value{
 a matrix with dimensions length(quadReports) X seqWidth
