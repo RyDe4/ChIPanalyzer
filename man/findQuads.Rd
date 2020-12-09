@@ -32,3 +32,31 @@ system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
 findQuads(bedPath = "MAZ_very_small_test.bed", seqWidth = 200, assemblyVersion = "hg19")
 
 }
+\references{
+Hon J, Martinek T, Zendulka J, Lexa M. (2017) pqsfinder: an
+exhaustive and imperfection-tolerant search tool for
+potential quadruplex-forming sequences in R. Bioinformatics.
+33(21), 3373-3379.
+https://doi.org/10.1093/bioinformatics/btx413
+
+The Bioconductor Dev Team (2014).
+BSgenome.Hsapiens.UCSC.hg19: Full genome sequences for Homo
+sapiens (UCSC version hg19). R package version 1.4.0.
+
+The Bioconductor Dev Team (2015).
+BSgenome.Hsapiens.UCSC.hg38: Full genome sequences for Homo
+sapiens (UCSC version hg38). R package version 1.4.1.
+
+The Bioconductor Dev Team (2014).
+BSgenome.Mmusculus.UCSC.mm9: Full genome sequences for Mus
+musculus (UCSC version mm9). R package version 1.4.0.
+
+The Bioconductor Dev Team (2014).
+BSgenome.Mmusculus.UCSC.mm10: Full genome sequences for Mus
+musculus (UCSC version mm10). R package version 1.4.0.
+
+Lawrence M, Huber W, Pag\`es H, Aboyoun P, Carlson M, et al.
+(2013) Software for Computing and Annotating Genomic Ranges.
+PLoS Comput Biol 9(8): e1003118.
+doi:10.1371/journal.pcbi.1003118
+}

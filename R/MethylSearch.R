@@ -35,6 +35,16 @@ createMethylBedFrame <- function(bedPath) {
 #' system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
 #' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HcfUMethylData.bed")
 #'
+#'@references
+#' H. Pagès, M. Lawrence and P. Aboyoun (2020). S4Vectors:
+#' Foundation of vector-like and list-like containers in
+#' Bioconductor. R package version 0.24.4.
+#'
+#' Lawrence M, Huber W, Pag\`es H, Aboyoun P, Carlson M, et al.
+#' (2013) Software for Computing and Annotating Genomic Ranges.
+#' PLoS Comput Biol 9(8): e1003118.
+#' doi:10.1371/journal.pcbi.1003118
+#'
 #'@export
 #'@import S4Vectors
 #'@import GenomicRanges
