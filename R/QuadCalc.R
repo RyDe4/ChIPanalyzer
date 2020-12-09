@@ -115,9 +115,6 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
   testSeqs <- getSurroundingSeq(bindSiteFrame,
                                 seqWidth = seqWidth,
                                 assembly = assemblyVersion)
-  #it is necessary to load the this entire library for the pqsfinder
-  #function to work
-  library(pqsfinder)
   #run pqsfinder on the sequences
   quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
   return(quadReports)
