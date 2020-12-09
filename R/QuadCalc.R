@@ -89,6 +89,10 @@ getSurroundingSeq <- function(bedFrame, seqWidth, assembly = "hg19") {
 #' PLoS Comput Biol 9(8): e1003118.
 #' doi:10.1371/journal.pcbi.1003118
 #'
+#' H. Pagès, P. Aboyoun, R. Gentleman and S. DebRoy (2019).
+#' Biostrings: Efficient manipulation of biological strings. R
+#' package version 2.54.0.
+#'
 #'@export
 #'@import BSgenome.Hsapiens.UCSC.hg19
 #'@import BSgenome.Hsapiens.UCSC.hg38
@@ -96,6 +100,7 @@ getSurroundingSeq <- function(bedFrame, seqWidth, assembly = "hg19") {
 #'@import BSgenome.Mmusculus.UCSC.mm10
 #'@import pqsfinder
 #'@import GenomicRanges
+#'@import Biostrings
 findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
   supportedAssemblies <- c("hg19", "hg38", "mm9", "mm10")
   #check that the assembly specified is valid
@@ -116,7 +121,7 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
                                 seqWidth = seqWidth,
                                 assembly = assemblyVersion)
   #run pqsfinder on the sequences
-  quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
+  quadReports <- lapply(testSeqs, pqsfinder:::pqsfinder)
   return(quadReports)
 }
 

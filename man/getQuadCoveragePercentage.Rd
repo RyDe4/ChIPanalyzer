@@ -10,13 +10,12 @@ getQuadCoveragePercentage(quadMatrix)
 \arguments{
 \item{quadMatrix}{a matrix in that format returned from getQuadMatrix,
 with each row representing a different sequence a columns representing
-positions, with a 1 indicated presence of a quadruplex and 0 otherwise
-
-reports <- findQuads(bedPath = "BRD4_reduced.bed", seqWidth = 75, assemblyVersion = "hg19")
-qMatrix <- getQuadMatrix(quadReports = reports, seqWidth = 75)
-quadCoveragePercentage <- getQuadCoveragePercentage(quadMatrix = qMatrix)@return a vector of percentages indicating the percentage of rows in
+positions, with a 1 indicated presence of a quadruplex and 0 otherwise}
+}
+\value{
+a vector of percentages indicating the percentage of rows in
 quadmatrix that there was a 1(quadruplex) at the position represented
-by that column}
+by that column
 }
 \description{
 Using the matrix returned by getQuadMatrix, calculate the percentage abundance
@@ -26,7 +25,7 @@ quadruplexes at positions dictated by the columns of quadMatrix
 reports <- findQuads(bedPath = "MAZ_high_score.bed",
  seqWidth = 200,
  assemblyVersion = "hg19")
-qMatrix <- getQuadMatrix(quadReports = reports)
+qMatrix <- getQuadMatrix(quadReports = reports, maxOnly = TRUE)
 quadCoveragePercentage <-
  getQuadCoveragePercentage(quadMatrix = qMatrix)
 

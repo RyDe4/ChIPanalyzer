@@ -23,7 +23,17 @@ biocViews:
     BSgenome.Hsapiens.UCSC.hg19,
     BSgenome.Hsapiens.UCSC.hg38,
     BSgenome.Mmusculus.UCSC.mm9,
-    BSgenome.Mmusculus.UCSC.mm10
-    IRanges
+    BSgenome.Mmusculus.UCSC.mm10,
+    IRanges,
+    S4Vectors
+Imports:
+    pqsfinder,
+    Biostrings,
+    GenomicRanges,
+    BSgenome.Hsapiens.UCSC.hg19,
+    BSgenome.Hsapiens.UCSC.hg38,
+    BSgenome.Mmusculus.UCSC.mm9,
+    BSgenome.Mmusculus.UCSC.mm10,
+    IRanges,
     S4Vectors
 VignetteBuilder: knitr

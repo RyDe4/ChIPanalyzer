@@ -59,4 +59,8 @@ Lawrence M, Huber W, Pag\`es H, Aboyoun P, Carlson M, et al.
 (2013) Software for Computing and Annotating Genomic Ranges.
 PLoS Comput Biol 9(8): e1003118.
 doi:10.1371/journal.pcbi.1003118
+
+H. Pagès, P. Aboyoun, R. Gentleman and S. DebRoy (2019).
+Biostrings: Efficient manipulation of biological strings. R
+package version 2.54.0.
 }
