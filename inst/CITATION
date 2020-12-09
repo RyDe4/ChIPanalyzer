@@ -1,0 +1,12 @@
+citHeader("To cite ChIPAnalyzer in publications use:")
+
+citEntry(
+  entry    = "Unpublished",
+  title    = "ChIPAnalyzer",
+  author   = "Ryan Denniston",
+  note  = "Unpublished",
+  year     = "2020",
+  textVersion = paste(
+
+  )
+)
