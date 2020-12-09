@@ -31,7 +31,7 @@ plotQuadPosition <- function (featurePercentages, title) {
   leftBound <- as.integer(-1*floor(length(featurePercentages)/2))
   rightBound <- as.integer(ceiling(length(featurePercentages)/2) - 1)
   #display the plot
-  quadPlot <- plot(c(leftBound, rightBound),
+  plot(c(leftBound, rightBound),
        c(0, 100),
        type = "n",
        xlab = "Position",
@@ -42,6 +42,9 @@ plotQuadPosition <- function (featurePercentages, title) {
         col = "blue")
   abline(v = 0)
   title(title)
+
+  quadPlot <- recordPlot()
+
   return(quadPlot)
 }
 
@@ -75,12 +78,13 @@ plotMethylPercentage <- function(methylOverlapData) {
                 paste(round(100 - avgPercentMethyl, 4), "%"))
   sections <- c(avgPercentMethyl, 100 - avgPercentMethyl)
   #display the plot
-  methylPiePlot <- pie(sections, pieLabels,
+  pie(sections, pieLabels,
       col = c("green", "blue"),
       cex = 0.7)
   title("Avg % Reads Methylated", cex = 0.3)
   legend("topright", c("Methylated", "Not Methylated"),
          cex = 0.5, fill= c("green", "blue"))
+  methylPiePlot <- recordPlot()
 
   return(methylPiePlot)
 }
