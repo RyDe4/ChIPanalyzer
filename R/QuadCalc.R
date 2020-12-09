@@ -113,9 +113,6 @@ getMaxOnly <- function(prelimScores, prelimStarts, prelimWidths) {
 
 #get the score, start position, and width of each quadruplex
 getBasicStats <- function(quadResults, seqWidth) {
-  #this is necessary for accessing attributes of objects
-  #from this package
-  library("pqsfinder")
   #get the scores, start postitions, and widths of any quadruplexes
   quadScores <- lapply(quadResults, score)
   quadStart <- lapply(quadResults, start)
@@ -156,10 +153,12 @@ getBinVector <- function(quadData, seqWidth) {
 #'@return a matrix with dimensions length(quadReports) X seqWidth
 #'
 #'@examples
-#' reports <- findQuads(bedPath = "MAZ_high_score.bed", seqWidth = 200, assemblyVersion = "hg19")
+#' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' reports <- findQuads(bedPath = "MAZ_very_small_test.bed", seqWidth = 200, assemblyVersion = "hg19")
 #' quadMatrix <- getQuadMatrix(quadReports = reports)
 #'
 #'@export
+#'@import pqsfinder
 getQuadMatrix <- function(quadReports) {
   seq1Length <- nchar(as.character(Biostrings::subject(quadReports[[1]])))
   seq2Length <- nchar(as.character(Biostrings::subject(quadReports[[2]])))
