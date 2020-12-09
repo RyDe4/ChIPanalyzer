@@ -8,5 +8,5 @@ test_that("Test that the pathway examining G-quad positions works", {
     assembly = "hg19")
   testMatrix <- getQuadMatrix(testReports)
   testPercentages <- getQuadCoveragePercentage(testMatrix)
-  expect_equal(plotQuadPosition(testPercentages, "test plot"), TRUE)
+  expect_equal(typeof(plotQuadPosition(testPercentages, "test plot")), "list")
 })
