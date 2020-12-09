@@ -140,8 +140,24 @@ getMaxOnly <- function(prelimScores, prelimStarts, prelimWidths) {
   return(maxQuad)
 }
 
+#format the data for conversion into a binary vector
+formatQuadData <- function(prelimScores, prelimStarts, prelimWidths) {
+  if (length(prelimScores) > 0) {
+    quad <- list(prelimScores, prelimStarts, prelimWidths)
+    names(quad) <- c("score", "start", "width")
+  } else {
+    scoreVar <- 0
+    startVar <- 0
+    widthVar <- 0
+    quad <- list(scoreVar, startVar, widthVar)
+    names(quad) <- c("score", "start", "width")
+  }
+  return(quad)
+}
+
+
 #get the score, start position, and width of each quadruplex
-getBasicStats <- function(quadResults, seqWidth) {
+getBasicStats <- function(quadResults, seqWidth, maxOnly) {
   #get the scores, start postitions, and widths of any quadruplexes
   quadScores <- lapply(quadResults, score)
   quadStart <- lapply(quadResults, start)
@@ -149,9 +165,15 @@ getBasicStats <- function(quadResults, seqWidth) {
   prelimBasic <- list(quadScores, quadStart, quadWidth)
   names(prelimBasic) <- c("scores", "starts", "widths")
   #filter out stats from non-maximal G-quadruplexes
-  quadBasic <- mapply(getMaxOnly, prelimBasic$scores,
+  if (maxOnly == TRUE) {
+    quadBasic <- mapply(getMaxOnly, prelimBasic$scores,
                       prelimBasic$start, prelimBasic$width,
                       SIMPLIFY = FALSE)
+  } else {
+    quadBasic <- mapply(formatQuadData, prelimBasic$scores,
+                        prelimBasic$start, prelimBasic$width,
+                        SIMPLIFY = FALSE)
+  }
 
   return(quadBasic)
 }
@@ -161,8 +183,10 @@ getBasicStats <- function(quadResults, seqWidth) {
 #containing a quadruplex and zeroes at other positions
 getBinVector <- function(quadData, seqWidth) {
   binVec <- rep(0, seqWidth)
-  if (quadData["start"] != 0) {
-    binVec[quadData["start"]:(quadData["start"] + quadData["width"] - 1)] <- 1
+  if (quadData[["start"]][1] != 0) {
+    for (i in 1:length(quadData[["start"]])) {
+      binVec[quadData[["start"]][i]:(quadData[["start"]][i] + quadData[["width"]][i] - 1)] <- 1
+    }
   }
   return(binVec)
 }
@@ -179,12 +203,15 @@ getBinVector <- function(quadData, seqWidth) {
 #' and equal to seqWidth
 #'@param seqWidth the width of the sequence used to generate all the reports.
 #'
+#'@param maxOnly if TRUE, only the maximum scoring G-quadruplexes for each sequence are used.
+#'
+#'
 #'@return a matrix with dimensions length(quadReports) X seqWidth
 #'
 #'@examples
 #' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
 #' reports <- findQuads(bedPath = "MAZ_very_small_test.bed", seqWidth = 200, assemblyVersion = "hg19")
-#' quadMatrix <- getQuadMatrix(quadReports = reports)
+#' quadMatrix <- getQuadMatrix(quadReports = reports, maxOnly = TRUE)
 #'
 #'@references
 #' Hon J, Martinek T, Zendulka J, Lexa M. (2017) pqsfinder: an
@@ -195,14 +222,16 @@ getBinVector <- function(quadData, seqWidth) {
 #'
 #'@export
 #'@import pqsfinder
-getQuadMatrix <- function(quadReports) {
+getQuadMatrix <- function(quadReports, maxOnly = TRUE) {
   seq1Length <- nchar(as.character(Biostrings::subject(quadReports[[1]])))
   seq2Length <- nchar(as.character(Biostrings::subject(quadReports[[2]])))
   if (seq1Length != seq2Length) {
     stop("Reports not for sequences of equal length")
   }
   seqWidth = seq1Length
-  prelimStats <- getBasicStats(quadResults = quadReports, seqWidth = seqWidth)
+  prelimStats <- getBasicStats(quadResults = quadReports,
+                               seqWidth = seqWidth,
+                               maxOnly = maxOnly)
   binVecs <- lapply(prelimStats, getBinVector,
                     seqWidth = seqWidth)
   binMatrix <- matrix(unlist(binVecs),
@@ -232,7 +261,7 @@ getQuadMatrix <- function(quadReports) {
 #' reports <- findQuads(bedPath = "MAZ_high_score.bed",
 #'  seqWidth = 200,
 #'  assemblyVersion = "hg19")
-#' qMatrix <- getQuadMatrix(quadReports = reports)
+#' qMatrix <- getQuadMatrix(quadReports = reports, maxOnly = TRUE)
 #' quadCoveragePercentage <-
 #'  getQuadCoveragePercentage(quadMatrix = qMatrix)
 #'
