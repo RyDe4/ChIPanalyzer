@@ -10,7 +10,7 @@
 #' a vector returned by getQuadCoveragePercentage()
 #'@param title a string specifying the title of the plot
 #'
-#'@return returns TRUE if no errors
+#'@return returns a plot of G-Quadruplex Abundance
 #'
 #'@examples
 #' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
@@ -19,7 +19,7 @@
 #'   assemblyVersion = "hg19")
 #' qMatrix <- getQuadMatrix(quadReports = reports)
 #' quadCoveragePercentage <- getQuadCoveragePercentage(quadMatrix = qMatrix)
-#' plotQuadPosition(quadCoveragePosition, "MAZ G-Quad Abundance")
+#' plotQuadPosition(quadCoveragePercentage, "MAZ G-Quad Abundance")
 #'
 #'@export
 plotQuadPosition <- function (featurePercentages, title) {
@@ -30,7 +30,7 @@ plotQuadPosition <- function (featurePercentages, title) {
   leftBound <- as.integer(-1*floor(length(featurePercentages)/2))
   rightBound <- as.integer(ceiling(length(featurePercentages)/2) - 1)
   #display the plot
-  plot(c(leftBound, rightBound),
+  quadPlot <- plot(c(leftBound, rightBound),
        c(0, 100),
        type = "n",
        xlab = "Position",
@@ -41,6 +41,7 @@ plotQuadPosition <- function (featurePercentages, title) {
         col = "blue")
   abline(v = 0)
   title(title)
+  return(quadPlot)
 }
 
 #'Generate a Pie Chart of The percentage of ChIP peak nucleotides that
@@ -52,6 +53,8 @@ plotQuadPosition <- function (featurePercentages, title) {
 #'
 #'@param methylOverlapData a data frame with a coverage column specifying
 #' the percentage of reads methylated. This column must be named coverage
+#'
+#'@return returns a pie plot of methylation percentages
 #'
 #'@examples
 #' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
@@ -71,10 +74,12 @@ plotMethylPercentage <- function(methylOverlapData) {
                 paste(round(100 - avgPercentMethyl, 4), "%"))
   sections <- c(avgPercentMethyl, 100 - avgPercentMethyl)
   #display the plot
-  pie(sections, pieLabels,
+  methylPiePlot <- pie(sections, pieLabels,
       col = c("green", "blue"),
       cex = 0.7)
   title("Avg % Reads Methylated", cex = 0.3)
   legend("topright", c("Methylated", "Not Methylated"),
          cex = 0.5, fill= c("green", "blue"))
+
+  return(methylPiePlot)
 }
