@@ -8,6 +8,7 @@
 #'
 #'@param featurePercentages a numeric vector containing percentages such as
 #' a vector returned by getQuadCoveragePercentage()
+#'
 #'@param title a string specifying the title of the plot
 #'
 #'@return returns a plot of G-Quadruplex Abundance
