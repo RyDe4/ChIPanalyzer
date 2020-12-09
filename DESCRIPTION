@@ -25,4 +25,5 @@ biocViews:
     BSgenome.Mmusculus.UCSC.mm9,
     BSgenome.Mmusculus.UCSC.mm10
     IRanges
+    S4Vectors
 VignetteBuilder: knitr
