@@ -34,11 +34,15 @@ library("ChIPAnalyzer")
 
 ## Overview 
 ```r
-ls("ChIPAnalyzer")
+ls("package:ChIPAnalyzer")
 data(package = "ChIPAnalyzer)
 ```
 ChIPAnalyzer is a package for the analysis of ChIP-seq data. It has functions for the analysis G-quadruplexes abundance in the vicinity of peaks using pqsfinder and functions for the analysis of DNA methylation of ChIP-seq peaks. See vignettes for details:
 
+![](inst/extdata/MAZ_high_scores_plot.png)
+![](inst/extdata/MAZ_G4_plot_all_quads.png)
+
+![](inst/extdata/methyl_percent_plot.png)
 ```r
 browseVignettes("ChIPAnalyzer")
 ```
@@ -47,7 +51,7 @@ Package Structure:
 -ChIPAnalyzer
   |- ChIPAnalyzer.Rproj
   |- DESCRIPTION
-  |- LISCENCE
+  |- LICENSE
   |- README
   |- inst
     |- extdata

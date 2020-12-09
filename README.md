@@ -28,17 +28,19 @@ library("ChIPAnalyzer")
 ## Overview
 
 ``` r
-ls("ChIPAnalyzer")
+ls("package:ChIPAnalyzer")
 data(package = "ChIPAnalyzer)
 ```
-
-Note: Datasets are raw data found in inst/extdata/, and can be accessed
-using the system.file function
 
 ChIPAnalyzer is a package for the analysis of ChIP-seq data. It has
 functions for the analysis G-quadruplexes abundance in the vicinity of
 peaks using pqsfinder and functions for the analysis of DNA methylation
 of ChIP-seq peaks. See vignettes for details:
+
+![](inst/extdata/MAZ_high_scores_plot.png)
+![](inst/extdata/MAZ_G4_plot_all_quads.png)
+
+![](inst/extdata/methyl_percent_plot.png)
 
 ``` r
 browseVignettes("ChIPAnalyzer")
@@ -50,7 +52,7 @@ Package Structure:
 -ChIPAnalyzer
   |- ChIPAnalyzer.Rproj
   |- DESCRIPTION
-  |- LISCENCE
+  |- LICENSE
   |- README
   |- inst
     |- extdata
@@ -61,6 +63,7 @@ Package Structure:
     |- getMethyOverlap.Rd
     |- getQuadCoveragePercentage.Rd
     |- plotMethylPercentage.Rd
+    |- plotMultipleMethylPercentage.Rd
   |- R
     |- MethylSearch.R
     |- QuadCalc.R
@@ -75,9 +78,6 @@ Package Structure:
       |- test-getQuadCoveragePercentage.R
       |- test-getQuadMatrix.R
       |- test-plotQuadPosition.R
-      |- test-quadIntegration.R
-      |- test-methylIntegration1.R
-      |- test-plotMethylPercentage.R
     |- testthat.R
   
 ```
@@ -139,15 +139,6 @@ Annotation Downloads. Retrieved November 13, 2020, from
 Partridge, E. C., Chhetri, S. B., Mendenhall, E. M., & Myers, R. M.
 (2019, November 27). GEO Accession viewer. Retrieved November 14, 2020,
 from <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE104247>
-
-Cogoi, S., Shchekotikhin, A. E., & Xodo, L. E. (2014). HRAS is silenced
-by two neighboring G-quadruplexes and activated by MAZ, a zinc-finger
-transcription factor with DNA unfolding property. Nucleic Acids
-Research, 42(13), 8379-8388. <doi:10.1093/nar/gku574>
-
-H. Pagès, M. Lawrence and P. Aboyoun (2020). S4Vectors: Foundation of
-vector-like and list-like containers in Bioconductor. R package version
-0.24.4.
 
 ## Acknowledgements
 
