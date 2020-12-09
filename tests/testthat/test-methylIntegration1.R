@@ -6,5 +6,5 @@ library(ChIPAnalyzer)
 test_that("The methylation Pie chart pipeline works", {
   testOverlap <- ChIPAnalyzer::getMethylOverlap(chipPath = "MAZ_very_small_test.bed",
                                  methylPath = "HcfUMethylData.bed")
-  expect_equal(plotMethylPercentage(testOverlap), TRUE)
+  expect_equal(typeof(plotMethylPercentage(testOverlap)), "list")
 })
