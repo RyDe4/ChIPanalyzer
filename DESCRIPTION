@@ -2,7 +2,7 @@ Package: ChIPAnalyzer
 Type: Package
 Title: ChIPAnalyzer
 Version: 0.1.0
-Author: Ryan Denniston
+Authors@R: person("R", "Denniston", email = "ryan.denniston@mail.utoronto.ca", role = c("aut", "cre"))
 Maintainer: Ryan Denniston <ryan.denniston@mail.utoronto.ca>
 Description: A package for the analysis of ChIP-seq peaks, including 
   tools for investigating G-quadruplexes and methylation data in the 
