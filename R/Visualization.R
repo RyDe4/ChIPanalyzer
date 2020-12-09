@@ -13,7 +13,8 @@
 #'@return returns TRUE if no errors
 #'
 #'@examples
-#' reports <- findQuads(bedPath = "MAZ_high_score.bed",
+#' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' reports <- findQuads(bedPath = "MAZ_very_small_test.bed",
 #'  seqWidth = 200,
 #'   assemblyVersion = "hg19")
 #' qMatrix <- getQuadMatrix(quadReports = reports)
@@ -40,7 +41,6 @@ plotQuadPosition <- function (featurePercentages, title) {
         col = "blue")
   abline(v = 0)
   title(title)
-  return(TRUE)
 }
 
 #'Generate a Pie Chart of The percentage of ChIP peak nucleotides that
@@ -54,6 +54,8 @@ plotQuadPosition <- function (featurePercentages, title) {
 #' the percentage of reads methylated. This column must be named coverage
 #'
 #'@examples
+#' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
 #' overlap <- getMethylOverlap("MAZ_high_score.bed", "HcfUMethylData.bed")
 #' plotMethylPercentage(overlap)
 #'
@@ -75,5 +77,4 @@ plotMethylPercentage <- function(methylOverlapData) {
   title("Avg % Reads Methylated", cex = 0.3)
   legend("topright", c("Methylated", "Not Methylated"),
          cex = 0.5, fill= c("green", "blue"))
-  return(TRUE)
 }
