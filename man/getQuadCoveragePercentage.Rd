@@ -29,4 +29,5 @@ reports <- findQuads(bedPath = "MAZ_high_score.bed",
 qMatrix <- getQuadMatrix(quadReports = reports)
 quadCoveragePercentage <-
  getQuadCoveragePercentage(quadMatrix = qMatrix)
+
 }
