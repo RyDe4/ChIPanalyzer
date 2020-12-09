@@ -140,6 +140,12 @@ Partridge, E. C., Chhetri, S. B., Mendenhall, E. M., & Myers, R. M.
 (2019, November 27). GEO Accession viewer. Retrieved November 14, 2020,
 from <https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE104247>
 
+Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan McPherson
+(2020). shiny: Web Application Framework for R. R package version 1.5.0.
+<https://CRAN.R-project.org/package=shiny>
+
+Grolemund, G. (2015). Learn Shiny - Video Tutorials. 
+
 ## Acknowledgements
 
 This package was developed as part of an assessment for 2020 BCB410H:
