@@ -39,6 +39,10 @@ getSurroundingSeq <- function(bedFrame, seqWidth, assembly = "hg19") {
   return(seq)
 }
 
+reverseComplement <- function(seq){
+  return(Biostrings::reverseComplement(seq))
+}
+
 #'Generate Reports on Potential G-quadruplex forming Strings
 #'near ChIP peaks using pqsfinder
 #'
@@ -120,14 +124,9 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
   testSeqs <- getSurroundingSeq(bindSiteFrame,
                                 seqWidth = seqWidth,
                                 assembly = assemblyVersion)
-  # run pqsfinder on the sequences
+  #run pqsfinder on the sequences
   library(pqsfinder)
-  library(Biostrings)
-  quadReports <- c()
-  for (seq in testSeqs) {
-    report <- pqsfinder::pqsfinder(seq)
-    quadReports <- c(quadReports, report)
-  }
+  quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
   return(quadReports)
 }
 
