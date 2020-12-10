@@ -1,5 +1,4 @@
 library(testthat)
-library(ChIPAnalyzer)
 
 test_that("Test that the pathway examining G-quad positions works", {
   testReports <- findQuads(

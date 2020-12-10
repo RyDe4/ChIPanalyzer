@@ -22,7 +22,8 @@ require("devtools")
 devtools::install_github("RyDe4/ChIPAnalyzer", build_vignettes = TRUE)
 library("ChIPAnalyzer")
 
-#To run the shinyApp:Under construction
+#To run the shinyApp:
+runChIPAnalyzer()
 ```
 
 ## Overview

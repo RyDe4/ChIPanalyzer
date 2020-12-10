@@ -1,5 +1,4 @@
 library(testthat)
-library(ChIPAnalyzer)
 
 test_that("getMethylOverlap does not return an impossibly large number
           of overlaps", {

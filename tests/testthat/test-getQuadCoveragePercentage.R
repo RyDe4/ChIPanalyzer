@@ -1,5 +1,4 @@
 library(testthat)
-library(ChIPAnalyzer)
 
 test_that("getQuadCoveragePercentage returns correct percentages", {
   expect_equal(getQuadCoveragePercentage(

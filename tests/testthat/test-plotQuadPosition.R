@@ -1,5 +1,4 @@
 library(testthat)
-library(ChIPAnalyzer)
 
 test_that("test that ploting valid vector
           doesn't cause error", {

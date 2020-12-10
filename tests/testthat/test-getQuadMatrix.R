@@ -1,5 +1,4 @@
 library(testthat)
-library(ChIPAnalyzer)
 
 test_that("check that returned matrix has correct dimensions", {
   testReports <- findQuads(
