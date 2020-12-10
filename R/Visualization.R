@@ -61,7 +61,7 @@ plotQuadPosition <- function (featurePercentages, title) {
 #'@return returns a pie plot of methylation percentages
 #'
 #'@examples
-#' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' system.file("extdata", "MAZ_high_score.bed", package = "ChIPAnalyzer")
 #' system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
 #' overlap <- getMethylOverlap("MAZ_high_score.bed", "HcfUMethylData.bed")
 #' plotMethylPercentage(overlap)
