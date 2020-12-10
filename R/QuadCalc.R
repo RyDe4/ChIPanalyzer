@@ -24,7 +24,7 @@ getSurroundingSeq <- function(bedFrame, seqWidth, assembly = "hg19") {
                                             fix='center')
   #lead sequencs in Granges from the specified assembly
   if (assembly == "hg19") {
-    seq <- Biostrings::getSeq(BSgenome.Hsapiens.UCSC.hg19::BSgenome.Hsapiens.UCSC.hg19,
+    seq <- Biostrings::getSeq(BSgenome.Hsapiens.UCSC.hg19,
                             bindSitesResized)
   } else if (assembly == "hg38") {
     seq <- Biostrings::getSeq(BSgenome.Hsapiens.UCSC.hg38,
@@ -39,9 +39,9 @@ getSurroundingSeq <- function(bedFrame, seqWidth, assembly = "hg19") {
   return(seq)
 }
 
-reverseComplement <- function(seq){
-  return(Biostrings::reverseComplement(seq))
-}
+#reverseComplement <- function(seq){
+#  return(Biostrings::reverseComplement(seq))
+#}
 
 #'Generate Reports on Potential G-quadruplex forming Strings
 #'near ChIP peaks using pqsfinder
@@ -125,7 +125,8 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
                                 seqWidth = seqWidth,
                                 assembly = assemblyVersion)
   #run pqsfinder on the sequences
-  library(pqsfinder)
+  requireNamespace("pqsfinder")
+  requireNamespace("Biostrings")
   quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
   return(quadReports)
 }
