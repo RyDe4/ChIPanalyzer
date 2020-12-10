@@ -31,3 +31,12 @@ plotMethylPercentage(methylOverlapData = overlap)
 ```
 
 This will result in a pie chart indicating the average frequency, as a percentage, that nucleotides within the ChIP-SEQ peaks were methylated.
+
+## References
+
+Lawrence M, Huber W, Pag\`es H, Aboyoun P, Carlson M, et al. (2013) Software for Computing and Annotating Genomic Ranges.
+  *PLoS Comput Biol* 9(8): e1003118.
+  doi:10.1371/journal.pcbi.1003118
+  
+UCSC Genome Browser Maintainers. (2011, September 22). Sequence and Annotation Downloads. Retrieved November 13, 2020, from http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeHaibMethylRrbs/
+

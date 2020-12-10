@@ -55,3 +55,49 @@ runChIPAnalyzer()
 ```
 
 ![](Shiny_demo.png)
+
+## References
+
+Lawrence M, Huber W, Pag\`es H, Aboyoun P, Carlson M, et al. (2013) Software for Computing and Annotating Genomic Ranges.
+  *PLoS Comput Biol* 9(8): e1003118.
+  doi:10.1371/journal.pcbi.1003118
+  
+The Bioconductor Dev Team (2014).
+  BSgenome.Hsapiens.UCSC.hg19: Full genome sequences for Homo
+  sapiens (UCSC version hg19). R package version 1.4.0.
+  
+The Bioconductor Dev Team (2014).
+  BSgenome.Mmusculus.UCSC.mm10: Full genome sequences for Mus
+  musculus (UCSC version mm10). R package version 1.4.0.
+  
+The Bioconductor Dev Team (2014).
+  BSgenome.Mmusculus.UCSC.mm9: Full genome sequences for Mus
+  musculus (UCSC version mm9). R package version 1.4.0
+  
+The Bioconductor Dev Team (2015).
+  BSgenome.Hsapiens.UCSC.hg38: Full genome sequences for Homo
+  sapiens (UCSC version hg38). R package version 1.4.1.
+  
+Hon J, Martinek T, Zendulka J, Lexa M. (2017) pqsfinder: an
+  exhaustive and imperfection-tolerant search tool for
+  potential quadruplex-forming sequences in R. *Bioinformatics*.
+  33(21), 3373-3379.
+  https://doi.org/10.1093/bioinformatics/btx413
+  
+Tang, D. (2014, January 04). Using ENCODE methylation data. Retrieved October 26, 2020, from https://davetang.org/muse/2013/05/09/using-encode-methylation-data/
+
+H. Pagès, P. Aboyoun, R. Gentleman and S. DebRoy (2019).
+  Biostrings: Efficient manipulation of biological strings. R
+  package version 2.54.0.
+
+Wickham, H. (2015). R Packages. O'Reilly & Associates.
+
+UCSC Genome Browser Maintainers. (2011, September 22). Sequence and Annotation Downloads. Retrieved November 13, 2020, from http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeHaibMethylRrbs/
+
+Partridge, E. C., Chhetri, S. B., Mendenhall, E. M., & Myers, R. M. (2019, November 27). GEO Accession viewer. Retrieved November 14, 2020, from https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE104247
+
+Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan
+  McPherson (2020). shiny: Web Application Framework for R. R
+  package version 1.5.0. https://CRAN.R-project.org/package=shiny
+  
+Grolemund, G. (2015). Learn Shiny - Video Tutorials. \href{https://shiny.rstudio.com/tutorial/}{Link}
