@@ -31,9 +31,9 @@ createMethylBedFrame <- function(bedPath) {
 #' the percentage of reads that were methylated.
 #'
 #'@examples
-#' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
-#' system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
-#' overlap <- getMethylOverlap("MAZ_very_small_test.bed", "HcfUMethylData.bed")
+#' path1 <- system.file("extdata", "MAZ_high_score.bed", package = "ChIPAnalyzer")
+#' path2 <- system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
+#' overlap <- getMethylOverlap(path1, path2)
 #'
 #'@references
 #' H. Pagès, M. Lawrence and P. Aboyoun (2020). S4Vectors:

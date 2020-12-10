@@ -121,8 +121,8 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
                                 seqWidth = seqWidth,
                                 assembly = assemblyVersion)
   #run pqsfinder on the sequences
-  requireNamespace("pqsfinder")
-  requireNamespace("Biostrings")
+  library(pqsfinder)
+  library(Biostrings)
   quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
   return(quadReports)
 }
@@ -212,8 +212,8 @@ getBinVector <- function(quadData, seqWidth) {
 #'@return a matrix with dimensions length(quadReports) X seqWidth
 #'
 #'@examples
-#' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
-#' reports <- findQuads(bedPath = "MAZ_very_small_test.bed", seqWidth = 200, assemblyVersion = "hg19")
+#' path <- system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' reports <- findQuads(bedPath = path, seqWidth = 200, assemblyVersion = "hg19")
 #' quadMatrix <- getQuadMatrix(quadReports = reports, maxOnly = TRUE)
 #'
 #'@references
@@ -259,7 +259,8 @@ getQuadMatrix <- function(quadReports, maxOnly = TRUE) {
 #' by that column
 #'
 #'@examples
-#' reports <- findQuads(bedPath = "MAZ_high_score.bed",
+#' path <- system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' reports <- findQuads(bedPath = path,
 #'  seqWidth = 200,
 #'  assemblyVersion = "hg19")
 #' qMatrix <- getQuadMatrix(quadReports = reports, maxOnly = TRUE)

@@ -14,8 +14,8 @@
 #'@return returns a plot of G-Quadruplex Abundance
 #'
 #'@examples
-#' system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
-#' reports <- findQuads(bedPath = "MAZ_very_small_test.bed",
+#' path <- system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+#' reports <- findQuads(bedPath = path,
 #'  seqWidth = 200,
 #'   assemblyVersion = "hg19")
 #' qMatrix <- getQuadMatrix(quadReports = reports)
@@ -61,9 +61,9 @@ plotQuadPosition <- function (featurePercentages, title) {
 #'@return returns a pie plot of methylation percentages
 #'
 #'@examples
-#' system.file("extdata", "MAZ_high_score.bed", package = "ChIPAnalyzer")
-#' system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
-#' overlap <- getMethylOverlap("MAZ_high_score.bed", "HcfUMethylData.bed")
+#' path1 <- system.file("extdata", "MAZ_high_score.bed", package = "ChIPAnalyzer")
+#' path2 <- system.file("extdata", "HcfUMethylData.bed", package = "ChIPAnalyzer")
+#' overlap <- getMethylOverlap(path1, path2)
 #' plotMethylPercentage(overlap)
 #'
 #'@export

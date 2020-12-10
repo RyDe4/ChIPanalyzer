@@ -23,8 +23,8 @@ there is a quadruplex at that position in the sequence for the report for that r
 and a 0 otherwise.
 }
 \examples{
-system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
-reports <- findQuads(bedPath = "MAZ_very_small_test.bed", seqWidth = 200, assemblyVersion = "hg19")
+path <- system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+reports <- findQuads(bedPath = path, seqWidth = 200, assemblyVersion = "hg19")
 quadMatrix <- getQuadMatrix(quadReports = reports, maxOnly = TRUE)
 
 }

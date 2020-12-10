@@ -22,8 +22,8 @@ plot the percentage of peaks that have G-quadruplexes across
 positions in sequences around the ChIP-SEQ peaks
 }
 \examples{
-system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
-reports <- findQuads(bedPath = "MAZ_very_small_test.bed",
+path <- system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+reports <- findQuads(bedPath = path,
  seqWidth = 200,
   assemblyVersion = "hg19")
 qMatrix <- getQuadMatrix(quadReports = reports)

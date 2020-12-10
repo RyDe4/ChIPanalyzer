@@ -22,7 +22,8 @@ Using the matrix returned by getQuadMatrix, calculate the percentage abundance
 quadruplexes at positions dictated by the columns of quadMatrix
 }
 \examples{
-reports <- findQuads(bedPath = "MAZ_high_score.bed",
+path <- system.file("extdata", "MAZ_very_small_test.bed", package = "ChIPAnalyzer")
+reports <- findQuads(bedPath = path,
  seqWidth = 200,
  assemblyVersion = "hg19")
 qMatrix <- getQuadMatrix(quadReports = reports, maxOnly = TRUE)
