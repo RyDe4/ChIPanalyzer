@@ -121,7 +121,8 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
                                 seqWidth = seqWidth,
                                 assembly = assemblyVersion)
   #run pqsfinder on the sequences
-  library(pqsfinder)
+  requireNamespace("pqsfinder")
+  requireNamespace("Biostrings")
   quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
   return(quadReports)
 }
