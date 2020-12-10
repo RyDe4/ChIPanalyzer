@@ -39,10 +39,6 @@ getSurroundingSeq <- function(bedFrame, seqWidth, assembly = "hg19") {
   return(seq)
 }
 
-#reverseComplement <- function(seq){
-#  return(Biostrings::reverseComplement(seq))
-#}
-
 #'Generate Reports on Potential G-quadruplex forming Strings
 #'near ChIP peaks using pqsfinder
 #'
