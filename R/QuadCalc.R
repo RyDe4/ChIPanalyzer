@@ -123,7 +123,11 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
   #run pqsfinder on the sequences
   library(pqsfinder)
   library(Biostrings)
-  quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
+  quadReports <- c()
+  for (seq in testSeqs) {
+    report <- pqsfinder::pqsfinder(seq)
+    quadReports <- c(quadReports, report)
+  }
   return(quadReports)
 }
 
