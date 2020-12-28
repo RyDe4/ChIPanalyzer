@@ -83,6 +83,24 @@ Package Structure:
   
 ```
 
+## Examples
+
+Below is an example plot of G-quadruplex abundance in the vicinity of
+MAZ binding sites to serve as an example of what kind of output can be
+expected in the case of a DNA binding proteing that binds in the
+vicinity of G-quadruplexes. Note that there is an increase in quadruplex
+abundance in the vicinity of peaks(position 0). Only the highest scoring
+quadruplexes are used in this example.
+
+![](inst/extdata/MAZ_high_scores_plot.png)
+
+The next example shows the G-quadruplex abundance in the vicinity of
+FOXA2 binding sites as an example of what the plot will look like for
+proteins that aren’t known to bind near G-quadruplexes. Only the highest
+scoring quadruplexes are used in this example.
+
+![](inst/extdata/FOXA2%20Quad%20Plot.png)
+
 ## Contributions
 
 All functions in this package were written by the author, Ryan
