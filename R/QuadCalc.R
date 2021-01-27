@@ -94,12 +94,13 @@ getSurroundingSeq <- function(bedFrame, seqWidth, assembly = "hg19") {
 #' package version 2.54.0.
 #'
 #'@export
-#'@import BSgenome.Hsapiens.UCSC.hg19
-#'@import BSgenome.Hsapiens.UCSC.hg38
-#'@import BSgenome.Mmusculus.UCSC.mm9
-#'@import BSgenome.Mmusculus.UCSC.mm10
+#'@importFrom BSgenome.Hsapiens.UCSC.hg19 BSgenome.Hsapiens.UCSC.hg19
+#'@importFrom BSgenome.Hsapiens.UCSC.hg38 BSgenome.Hsapiens.UCSC.hg38
+#'@importFrom BSgenome.Mmusculus.UCSC.mm9 BSgenome.Mmusculus.UCSC.mm9
+#'@importFrom BSgenome.Mmusculus.UCSC.mm10 BSgenome.Mmusculus.UCSC.mm10
 #'@importFrom Biostrings reverseComplement
-#'@import pqsfinder
+#'@importFrom pqsfinder pqsfinder
+#'@importFrom pqsfinder PQSViews
 #'@import GenomicRanges
 findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
   supportedAssemblies <- c("hg19", "hg38", "mm9", "mm10")
@@ -122,7 +123,6 @@ findQuads <- function (bedPath, seqWidth, assemblyVersion = "hg19") {
                                 assembly = assemblyVersion)
   #run pqsfinder on the sequences
   library("pqsfinder")
-  #library("Biostrings")
   quadReports <- lapply(testSeqs, pqsfinder::pqsfinder)
   return(quadReports)
 }
