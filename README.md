@@ -88,7 +88,7 @@ vicinity of G-quadruplexes. Note that there is an increase in quadruplex
 abundance in the vicinity of peaks(position 0). Only the highest scoring
 quadruplexes are used in this example.
 
-![](inst/extdata/MAZ_quad_workflow_example.png)
+![](inst/extdata/MAZ_quad_workflow_example.png.png)
 
 The next example shows the G-quadruplex abundance in the vicinity of
 FOXA2 binding sites as an example of what the plot will look like for
