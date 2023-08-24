@@ -4,7 +4,6 @@
 # Description
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 The goal of ChIPAnalyzer is to provide the user with tools for the
@@ -38,8 +37,7 @@ functions for the analysis G-quadruplexes abundance in the vicinity of
 peaks using pqsfinder and functions for the analysis of DNA methylation
 of ChIP-seq peaks. See vignettes for details:
 
-![](inst/extdata/MAZ_high_scores_plot.png)
-![](inst/extdata/MAZ_G4_plot_all_quads.png)
+![](inst/extdata/MAZ_quad_workflow_example.png.png)
 
 ![](inst/extdata/methyl_percent_plot.png)
 
@@ -49,39 +47,37 @@ browseVignettes("ChIPAnalyzer")
 
 Package Structure:
 
-``` 
--ChIPAnalyzer
-  |- ChIPAnalyzer.Rproj
-  |- DESCRIPTION
-  |- LICENSE
-  |- README
-  |- inst
-    |- extdata
-      |- MAZ_high_score.bed
-      |- HEK293MethylData.bed
-  |- man
-    |- findQuads.Rd
-    |- getMethyOverlap.Rd
-    |- getQuadCoveragePercentage.Rd
-    |- plotMethylPercentage.Rd
-    |- plotMultipleMethylPercentage.Rd
-  |- R
-    |- MethylSearch.R
-    |- QuadCalc.R
-    |- Visualization.R
-  |- vignettes
-    |- Analyze_G-quadruplexes.Rmd
-    |- Analyze_Peak_Methylation.Rmd
-  |- tests
-    |- testthat
-      |- MAZ_very_small_test.bed
-      |- test-getMethylOverlap.R
-      |- test-getQuadCoveragePercentage.R
-      |- test-getQuadMatrix.R
-      |- test-plotQuadPosition.R
-    |- testthat.R
-  
-```
+    -ChIPAnalyzer
+      |- ChIPAnalyzer.Rproj
+      |- DESCRIPTION
+      |- LICENSE
+      |- README
+      |- inst
+        |- extdata
+          |- MAZ_high_score.bed
+          |- HEK293MethylData.bed
+      |- man
+        |- findQuads.Rd
+        |- getMethyOverlap.Rd
+        |- getQuadCoveragePercentage.Rd
+        |- plotMethylPercentage.Rd
+        |- plotMultipleMethylPercentage.Rd
+      |- R
+        |- MethylSearch.R
+        |- QuadCalc.R
+        |- Visualization.R
+      |- vignettes
+        |- Analyze_G-quadruplexes.Rmd
+        |- Analyze_Peak_Methylation.Rmd
+      |- tests
+        |- testthat
+          |- MAZ_very_small_test.bed
+          |- test-getMethylOverlap.R
+          |- test-getQuadCoveragePercentage.R
+          |- test-getQuadMatrix.R
+          |- test-plotQuadPosition.R
+        |- testthat.R
+      
 
 ## Examples
 
@@ -92,14 +88,14 @@ vicinity of G-quadruplexes. Note that there is an increase in quadruplex
 abundance in the vicinity of peaks(position 0). Only the highest scoring
 quadruplexes are used in this example.
 
-![](inst/extdata/MAZ_high_scores_plot.png)
+![](inst/extdata/MAZ_quad_workflow_example.png)
 
 The next example shows the G-quadruplex abundance in the vicinity of
 FOXA2 binding sites as an example of what the plot will look like for
 proteins that aren’t known to bind near G-quadruplexes. Only the highest
 scoring quadruplexes are used in this example.
 
-![](inst/extdata/FOXA2%20Quad%20Plot.png)
+![](inst/extdata/FOXA2_quad_workflow_example.png)
 
 ## Contributions
 
@@ -163,7 +159,7 @@ Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan McPherson
 (2020). shiny: Web Application Framework for R. R package version 1.5.0.
 <https://CRAN.R-project.org/package=shiny>
 
-Grolemund, G. (2015). Learn Shiny - Video Tutorials. 
+Grolemund, G. (2015). Learn Shiny - Video Tutorials.
 
 ## Acknowledgements
 

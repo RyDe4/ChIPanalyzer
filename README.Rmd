@@ -40,8 +40,7 @@ data(package = "ChIPAnalyzer)
 ```
 ChIPAnalyzer is a package for the analysis of ChIP-seq data. It has functions for the analysis G-quadruplexes abundance in the vicinity of peaks using pqsfinder and functions for the analysis of DNA methylation of ChIP-seq peaks. See vignettes for details:
 
-![](inst/extdata/MAZ_high_scores_plot.png)
-![](inst/extdata/MAZ_G4_plot_all_quads.png)
+![](inst/extdata/MAZ_quad_workflow_example.png.png)
 
 ![](inst/extdata/methyl_percent_plot.png)
 ```r
@@ -85,11 +84,11 @@ Package Structure:
 ## Examples
 Below is an example plot of G-quadruplex abundance in the vicinity of MAZ binding sites to serve as an example of what kind of output can be expected in the case of a DNA binding proteing that binds in the vicinity of G-quadruplexes. Note that there is an increase in quadruplex abundance in the vicinity of peaks(position 0). Only the highest scoring quadruplexes are used in this example.
 
-![](inst/extdata/MAZ_high_scores_plot.png)
+![](inst/extdata/MAZ_quad_workflow_example.png)
 
 The next example shows the G-quadruplex abundance in the vicinity of FOXA2 binding sites as an example of what the plot will look like for proteins that aren't known to bind near G-quadruplexes. Only the highest scoring quadruplexes are used in this example.
 
-![](inst/extdata/FOXA2 Quad Plot.png)
+![](inst/extdata/FOXA2_quad_workflow_example.png)
 
 ## Contributions
 All functions in this package were written by the author, Ryan Denniston. The function findQuads() relies on the pqsfinder package to find potential quadruplex strings. For other dependencies, see References. Various packages from the UCSC genome series are used to get sequences in the getSurroundingSeq() helper function. GenomicRanges are used throughout the package to manipulate data read in from BED files Biostrings objects are also used to represent sequences. Methylation example data was retreived from http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeHaibMethylRrbs/ and ChIP-SEQ example data was retreived from Series GSE104247 on GEO. There is no publication associated with this accession.
